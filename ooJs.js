@@ -69,5 +69,5 @@
     });
     test01(user);
     const user2 = User.cloneUser(user);
-    test01(user2);// 调用时 user.getname() 方法报错  原型继承
+    test01(user2);// 调用时 user2.getname() 方法报错  原型继承
 })(window);
