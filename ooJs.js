@@ -12,9 +12,9 @@
  */
 (function () {
     function User(properties) {
-        for (const i in properties) {
+        for (let i in properties) {
             (function (which) {
-                const p = i;
+                let p = i;
                 which["get" + p] = function () {
                     return properties[p];
                 };
