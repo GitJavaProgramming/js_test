@@ -14,16 +14,25 @@
     /* 闭包中的变量 */
     function createFunctions() {
         let result = new Array();
-        for(let i = 0; i < 10; i++) {
+        for(let i = 0; i < 5; i++) {
             result[i] = function (num) {
                 return function () { // 闭包 访问外部函数作用域中的变量的匿名函数
                     return num;
                 };
             }(i);
         }
+        return result;
     }
     let func = createFunctions();
+    /**
+     * [function () { // 闭包 访问外部函数作用域中的变量的匿名函数
+     *   return num;
+     * },...]
+     */
     console.info(func);
+    for(let i = 0; i < func.length; i++) {
+        console.info(func[i]());
+    }
 
     /**
      * 闭包中的this
@@ -42,6 +51,6 @@
             };
         }
     };
-    object.getName();
-    alert(object.name);
+    object.getName()(); // "JS Bin Output "
+    alert(object.getName()()); // 弹框 "pengpeng" 控制台输出 "JS Bin Output "
 })();
