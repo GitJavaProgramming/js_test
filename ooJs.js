@@ -25,14 +25,14 @@
         }
 
         /**
-         * 私有方法，只能由构造函数方法
+         * 私有方法，只能在函数内部使用，无法在函数外部调用
          */
         function privateMethod() {
             console.info("call privateMethod");
         }
 
         /**
-         * 特权方法，私有变量，公共方法访问
+         * 特权方法，有权方法私有变量、私有函数的公有方法
          * */
         this.display = function () {
             console.info("call display.");
