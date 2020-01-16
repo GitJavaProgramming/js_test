@@ -4,7 +4,11 @@
  * let f = function(){}; // let是ECMA 6的新语法，指定变量仅在块级作用域内有效
  * f(); ==> (f)() => T 括号表示块级作用域 有很多常见形式：例如 for(;;) while()中的括号
  *
- * let singleton = function(){}() 函数表达式
+ * let singleton = function(){}() 函数表达式 执行到这里才会赋值
+ *
+ * 闭包 参考
+ * http://jibbering.com/faq/notes/closures/
+ * JS高级程序设计 ch07 匿名函数 闭包 块作用域
  * */
 (function () {
     /* 闭包中的变量 */

@@ -9,7 +9,7 @@
      参考资料
      JavaScript高级程序设计 第二版
      https://developer.mozilla.org/zh-CN/docs/Web
-     W3CScool
      ECMAScript-262 5/6
+     W3CScool
      JavaScript权威指南
      精通JavaScript
