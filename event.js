@@ -5,4 +5,7 @@
  * 捕获阶段--DOM事件从上（Document）至下，为事件的截获提供机会
  * 目标阶段--目标接受事件
  * 冒泡阶段--对事件进行处理
+ *
+ * window 对象表示一个包含DOM文档的窗口（浏览器实例--BOM），其 document 属性指向窗口中载入的 DOM文档
+ * https://developer.mozilla.org/zh-CN/docs/Web/API/Window
  * */

@@ -57,7 +57,10 @@
 /**
  * 抽象出公共调用部分
  * */
-const $ = {};
+// export const $ = function(window) {
+//     return new Function(window);
+// };
+export const $ = {};
 (function () {
     $.object = function (o/*传入的对象作为将要创建对象的原型*/) {
         function F() {
