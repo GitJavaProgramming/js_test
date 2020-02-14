@@ -19,3 +19,9 @@
      精通JavaScript
      webkit技术内幕 ch02 P31
      TypeScript中文网 https://www.tslang.cn/docs/home.html
+
+## 关于npm
+    http://codingdict.com/article/7470
+    https://cloud.tencent.com/developer/section/1490249
+## 关于webpack
+    https://cloud.tencent.com/developer/section/1477234
