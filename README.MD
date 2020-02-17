@@ -25,3 +25,6 @@
     https://cloud.tencent.com/developer/section/1490249
 ## 关于webpack
     https://cloud.tencent.com/developer/section/1477234
+## MVVM 框架解析之双向绑定
+    参考一个链接：实现了一个双向绑定
+    https://www.jianshu.com/p/68f401203f66
