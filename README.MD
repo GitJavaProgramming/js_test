@@ -1,15 +1,30 @@
-    详细介绍参考wiki页  https://github.com/GitJavaProgramming/js_test/wiki
-    目录概述
-        面向对象的JS
-        ECMAScript内置对象
-        执行环境 原型链与作用域链
-        DOM、JS事件与Ajax
+# 目录概述
+    词法、表达式和语句
+    执行代码与执行环境
+    ECMAScript内置对象
+    DOM、JS事件与Ajax
      
+## 函数与内置对象的一句话总结:
+     (自定义)函数都是Function的实例，每个函数都有prototype属性（对象），每个prototype都有constructor属性，每个实例都包含
+     指向prototype的属性(firefox中实现的属性名是__proto__)，通过给prototype属性赋值构造原型链。
+        函数名作为new表达式一部分被调用时，作为构造器初始化新创建的对象
+        
+     规范ECMAScript-262-5.1中描述：
+     Function、Object、Array、String等都是ECMA语言内置对象
+     Function.prototype对象的属性
+        Function.prototype.constructor
+        Function.prototype.toString()
+        Function.prototype.apply
+        Function.prototype.call
+        Function.prototype.bind // 用 Function.prototype.bind 创建的函数对象没有 prototype 属性。???
+## Javascript总结     
      BOM--Window对象包含DOM文档属性
      DOM--Document 文档对象，HTML文档即网页
      ECMAScript语言提供DOM交互接口
-     
-     参考资料
+         
+     wiki页有简单描述  https://github.com/GitJavaProgramming/js_test/wiki
+         
+## 参考资料
      JavaScript高级程序设计 第二版
      https://developer.mozilla.org/zh-CN/docs/Web
      https://developer.mozilla.org/zh-CN/docs/Web/API/Window
