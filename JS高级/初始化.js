@@ -1,14 +1,11 @@
-/* ************************************************************************************************
- * 前端代码在线测试工具  https://jsbin.com/?js,output
- *
- * ************************************************************************************************/
+console.log("****************初始化****************");
 (function () {
     "use strict";
-    let obj = {
+    let constants = {
         FUNCTION: "function"
     };
     let jQuery = function (func) {
-        if (typeof func === obj.FUNCTION) {
+        if (typeof func === constants.FUNCTION) {
             return new jQuery.fn.init(func);
         }
     }
@@ -17,5 +14,5 @@
         return func();
     }
     window.jQuery = window.$ = jQuery;
-    return obj;
+    return jQuery;
 }());

@@ -41,7 +41,7 @@ console.log("****************面向对象的js****************");
         let p = new Person();
         p.sayname();
     }());
-    $.prototypeChain = (function () {
+    $.inherit = (function () {
         /****************************************
          * 
          * 每个构造函数有一个prototype对象
@@ -105,5 +105,30 @@ console.log("****************面向对象的js****************");
         console.log(instance2.colors);
         console.log(instance.colors);
     });
+    // debug查看定义的各个方法所在位置
+    // 对象：User u
+    // 方法：setAge setName setJob
+    $.prototypeChain = function() {
+        function User() {}
+        User.prototype.setAge = function(age) { // User原型上添加方法
+            this.age = age;
+        }
+        let u = new User();
+        u.setAge(22);
+        // 构造函数也是对象
+        User.setJob = function(job) { // 函数作为Function实例对象，在其上添加方法
+            this.job = job;
+        }
+        // 原型链上的Function原型添加方法
+        User.__proto__.setName = function(name) { // User函数对象所指向的原型上添加方法
+            this.name = name;
+        }
+        console.log(User.__proto__ === Function.prototype);
+        User.setName("nihao");
+        User.setJob("coder");
+        console.log(User);
+        console.log(u);
+    }
 }());
+// $.inherit();
 $.prototypeChain();
