@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../jquery-3.4.1.js"></script>
+    <script>
+        // 阻止事件冒泡
+        $(function () {
+            $("span").bind("myClick", function (e) {
+                let txt = $("#msg").html() + "<p>span元素被单击</p>";
+                $("#msg").html(txt);
+                e.stopPropagation();
+            });
+            $("#content").bind("click", function (e) {
+                let txt = $("#msg").html() + "<p>div元素被单击</p>";
+                $("#msg").html(txt);
+                e.stopPropagation();
+            });
+            $("body").bind("click", function (e) {
+                let txt = $("#msg").html() + "<p>body元素被单击</p>";
+                $("#msg").html(txt);
+            });
+            let a = setInterval(function () {
+                $("span").trigger("myClick"); // 触发事件
+                $("#content").trigger("click");
+                $("body").trigger("click");
+            }, 2000);
+            setTimeout(() => {
+                clearInterval(a);
+            }, 10000);
+        });
+    </script>
+</head>
+
+<body>
+    <div id="content">
+        外层div元素
+        <span>内层span元素</span>
+        外层div元素
+    </div>
+    <div id="msg"></div>
+</body>
+
+</html>

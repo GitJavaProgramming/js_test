@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            position: relative;
+            display: inline;
+        }
+    </style>
+    <script src="../jquery-3.4.1.js"></script>
+    <script>
+        // 鼠标滑过超链接时提示与自带悬停提示
+        $(function () {
+            let x = 0;
+            let y = 0;
+            $("a.tooltip").mouseover(function (e) {
+                this.myTitle = this.title;
+                $(this).removeAttr("title");
+                var tooltip = "<div id='tooltip'>" + this.myTitle + "</div>";
+                $("body").append(tooltip);
+                $("#tooltip").css({
+                    "top": (e.pageY + y) + "px",
+                    "left": (e.pageX + x) + "px"
+                }).show("fast");
+            }).mouseout(function () {
+                $(this).attr("title", this.myTitle);
+                $("#tooltip").remove();
+            }).mousemove(function (e) {
+                $("#tooltip").css({
+                    "top": (e.pageY + y) + "px",
+                    "left": (e.pageX + x) + "px"
+                });
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <p><a href="#" class="tooltip" title="这是一个超链接提示1.">提示1</a></p>
+    <p><a href="#" class="tooltip" title="这是一个超链接提示2.">提示2</a></p>
+    <!-- <p><a href="#" title="这是自带提示1.">自带提示1.</a></p>
+    <p><a href="#" title="这是自带提示2.">自带提示2.</a></p> -->
+</body>
+
+</html>
