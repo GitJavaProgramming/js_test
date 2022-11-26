@@ -1,3 +1,4 @@
+console.log("****************JS DOM****************");
 (function () {
     document.write("<div id='block'><div>name<br/></div>");
     document.write("<div>title<br/></div></div>");
@@ -44,6 +45,7 @@ $(function () {
     for (let i = 0; i < child.length; i++) {
         if (parentNode === null) {
             parentNode = child[0].parentNode;
+            // alert(parentNode.childElementCount);
         }
         if (child[i].nodeType === 1) {
             arr.push(child[i].nodeName);
