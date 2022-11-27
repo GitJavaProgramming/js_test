@@ -125,6 +125,7 @@ console.log("****************面向对象的js****************");
             console.log(instance3.getSuperValue()); // true
         }());
         // js可不可以多继承???
+        return this;
     });
     // debug查看定义的各个方法所在位置
     // 对象：User u
@@ -152,4 +153,6 @@ console.log("****************面向对象的js****************");
     }
 }());
 $.inherit();
+$().each(); // 原型上的方法
+// $.each();
 // $.prototypeChain();
