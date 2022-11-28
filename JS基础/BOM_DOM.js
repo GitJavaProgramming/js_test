@@ -1,4 +1,3 @@
-console.log("****************JS DOM****************");
 (function () {
     document.write("<div id='block'><div>name<br/></div>");
     document.write("<div>title<br/></div></div>");
@@ -34,8 +33,9 @@ function say(id) {
         location.reload(true); // 页面刷新
     }
 }
-// dom操作
+// dom操作 异步执行
 $(function () {
+    console.log("****************JS DOM****************");
     let list = document.getElementById("list");
     let child = list.childNodes;
     let count = 0;
