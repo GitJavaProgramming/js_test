@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>创建一个超简单的虚拟DOM实例</title>
+</head>
+
+<body>
+    <script>
+        function Element({ tagName, props, children }) {
+            if (!(this instanceof Element)) {
+                return new Element({ tagName, props, children })
+            }
+            this.tagName = tagName;
+            this.props = props || {};
+            this.children = children || [];
+        }
+
+        Element.prototype.render = function () {
+            var el = document.createElement(this.tagName),
+                props = this.props,
+                propName,
+                propValue;
+            for (propName in props) {
+                propValue = props[propName];
+                el.setAttribute(propName, propValue);
+            }
+            this.children.forEach(function (child) {
+                var childEl = null;
+                if (child instanceof Element) {
+                    childEl = child.render();
+                } else {
+                    childEl = document.createTextNode(child);
+                }
+                el.appendChild(childEl);
+            });
+            return el;
+        };
+
+        var elem = Element({
+            tagName: 'ul',
+            props: { 'class': 'list' },
+            children: [
+                Element({ tagName: 'li', children: ['list1'] }),
+                Element({ tagName: 'li', children: ['list2'] })
+            ]
+        });
+        document.querySelector('body').appendChild(elem.render());
+
+    </script>
+
+</body>
+
+</html>
