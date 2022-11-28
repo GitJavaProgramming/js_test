@@ -1,5 +1,6 @@
-$(function () {
-    $.DataStruct = (function () {
+console.log("****************数据结构****************");
+(function () {
+    let DataStruct = (function () {
         this.Stack = (function () {
             let stack = {};
             let arr = [];
@@ -14,9 +15,9 @@ $(function () {
         }());
         return this;
     }());
-    let stack = $.DataStruct.Stack;
+    let stack = DataStruct.Stack;
     stack.push(1);
     stack.push(2);
     stack.push(3);
     console.log(stack.top);
-});
+}());

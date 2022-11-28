@@ -1,8 +1,10 @@
-$(function () {
-    console.log("****************字符串****************");
-    var str = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+(function () {
+    console.log("****************字符串与数组****************");
     // 字符串常用方法
-    (function () {
+    let o = {};
+    o.fn1 = function () {
+        let str = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+
         let arr = str.split("", 26); // 分割字符串
         console.log("字符串分割：", arr);
         console.log("字符串连接：", str.concat("a", "c", "m"));
@@ -24,9 +26,10 @@ $(function () {
         console.log(str.slice(-9, -1)); // [start,end)
         console.log("字符串长度：", str.length);
         console.log("字符串补齐：", str.padStart(70, "0"));
-    }());
+    };
+    let str = "afjaljfdklasqeerlfajdkfjajlqowfdsajkajdlald";
     // 逆序输出字符串
-    (function () {
+    o.fn2 = function () {
         let newStr = "";
         for (let i = str.length - 1; i >= 0; i--) {
             newStr += str.charAt(i);
@@ -34,10 +37,9 @@ $(function () {
         console.log("逆序：", newStr);
         var arr = Array.from(newStr);
         console.log("逆序：", arr.reverse().join(""));
-    }());
+    };
     // 统计字符串中出现最多的字符和次数
-    var str = "afjaljfdklasqeerlfajdkfjajlqowfdsajkajdlald";
-    (function () {
+    o.fn3 = function () {
         let o = {};
         let mostChar;
         let max = 0;
@@ -64,9 +66,9 @@ $(function () {
         }
         console.log("统计：", o);
         console.log("出现最多字符：", mostChar, "，次数：", max);
-    }());
+    };
     // 字符串去重
-    (function () {
+    o.fn4 = function () {
         let o = {};
         let arr = [];
         for (let i = 0; i < str.length; i++) {
@@ -77,9 +79,9 @@ $(function () {
             }
         }
         console.log("字符串去重：", arr.join(""));
-    }());
+    };
     // 回文字符串
-    (function () {
+    o.fn5 = function () {
         // 方法1
         function func(str) {
             for (let i = 0; i < str.length; i++) {
@@ -98,12 +100,9 @@ $(function () {
         let str = "123321";
         console.log("是否是回文：", func(str));
         console.log("是否是回文：", func2(str));
-    }());
-});
-$(function () {
-    console.log("****************数组****************");
+    };
     // 数组常用操作
-    (function () {
+    o.fn6 = function () {
         let arr = [1, 2, 3, 4, 5, 6];
         console.log(arr.push(4), arr);
         console.log(arr.pop(), arr);
@@ -134,5 +133,11 @@ $(function () {
         // reduce
         arr = [1, 2, 3, 4, 5, 6];
         console.log(arr.reduce((p, c) => p + c, 0));
-    }());
-});
+    };
+    o.fn1();
+    o.fn2();
+    o.fn3();
+    o.fn4();
+    o.fn5();
+    o.fn6();
+})();
