@@ -41,13 +41,19 @@
 }());
 (function () {
     let data = {
-        number: 0
+        number: 0,
+        o: {
+            a: '1',
+            b: 21
+        }
     }
 
-    // observe(data)
+    observe(data);
 
-    // console.log(data.number);
-    // data.number = 1 // 值发生变化
+    console.log(data.number);
+    data.number = 1 // 值发生变化
+
+    console.log(data.o.a);
 
     function observe(data) {
         if (!data || typeof (data) !== 'object') {
