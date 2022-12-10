@@ -1,4 +1,4 @@
-export const Observe = function (value) {
+const Observe = function (value) {
     this.value = value || {};
     this.walk = function (obj) {
         const keys = Object.keys(obj);
@@ -15,11 +15,11 @@ export const Observe = function (value) {
         }
         Object.defineProperty(obj, key, {
             get() {
-                console.log("属性被访问");
+                console.log(key + " 属性被访问");
                 return val;
             },
             set(newVal) {
-                console.log("属性被修改,旧值：,新值：");
+                console.log(key + " 属性被修改,旧值：" + val + ",新值：" + newVal);
                 val = newVal
             }
         });
@@ -30,3 +30,17 @@ export const Observe = function (value) {
         this.walk(value);
     }
 }
+console.log("****************模块****************");
+let obj = new Observe({
+    name: '鹏',
+    age: 18,
+    o: {
+        a: 19,
+        b: "zhang"
+    }
+});
+console.log(obj.value.name);
+obj.value.age = 22
+
+obj.value.o.a
+obj.value.o.b = 'peng'

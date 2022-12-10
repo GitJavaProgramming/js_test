@@ -13,23 +13,6 @@
     <script src="datastruct.js"></script>
     <script src="设计模式.js"></script>
     <script src="Object函数方法.js"></script>
-    <script type="module">
-        import { Observe } from "./observe.js"; // 同源策略 服务器方式运行
-        console.log("****************模块****************");
-        let obj = new Observe({
-            name: '鹏',
-            age: 18,
-            o: {
-                a: 19,
-                b: "zhang"
-            }
-        });
-        console.log(obj.value.name);
-        obj.value.age = 22
-
-        obj.value.o.a
-        obj.value.o.b = 'peng'
-    </script>
 </head>
 
 <body>

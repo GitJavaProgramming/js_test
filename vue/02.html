@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>用户列表</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="./vue.global.js"></script>
+    <style>
+        .container {
+            margin: 50px;
+        }
+
+        .content {
+            margin: 20px;
+        }
+
+        .tab {
+            width: 300px;
+            position: absolute;
+        }
+
+        .item {
+            border: gray 1px solid;
+            width: 148px;
+            text-align: center;
+            transition: all 0.8s ease;
+            display: inline-block;
+        }
+
+        .list-enter-active {
+            transition: all 1s ease;
+        }
+
+        .list-enter-from,
+        .list-leave-to {
+            opacity: 0;
+        }
+
+        .list-move {
+            transition: transform 1s ease;
+        }
+
+        .list-leave-active {
+            position: absolute;
+            transition: all 1s ease;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="Application">
+        <div class="container">
+            <div class="content">
+                <label><input type="radio" :value="-1" v-model="sexFilter" />全部</label>
+                <label><input type="radio" :value="0" v-model="sexFilter" />男</label>
+                <label><input type="radio" :value="1" v-model="sexFilter" />女</label>
+            </div>
+            <div class="content">搜索<input type="text" v-model="searchKey" /></div>
+            <div class="content">
+                <div class="tab" width="300px">
+                    <div>
+                        <div class="item">姓名</div>
+                        <div class="item">性别</div>
+                    </div>
+                    <transition-group name="list">
+                        <div v-for="(data,index) in showDatas" :key="data.name">
+                            <div class="item">{{data.name}}</div>
+                            <div class="item">{{data.sex == 0 ? '男' : '女'}}</div>
+                        </div>
+                    </transition-group>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        let mock = [
+            { name: "小王", sex: 0 },
+            { name: "小红", sex: 1 },
+            { name: "小李", sex: 1 },
+            { name: "小张", sex: 0 }
+        ]
+        const App = Vue.createApp({
+            data() {
+                return {
+                    sexFilter: -1,
+                    showDatas: [],
+                    searchKey: ""
+                }
+            },
+            methods: {
+                queryAllData() {
+                    this.showDatas = mock
+                },
+                filterData() {
+                    this.searchKey = ""
+                    if (this.sexFilter == -1) {
+                        this.showDatas = mock
+                    } else {
+                        this.showDatas = mock.filter((data) => {
+                            return data.sex == this.sexFilter
+                        })
+                    }
+                },
+                searchData() {
+                    this.sexFilter = -1
+                    if (this.searchKey.length === 0) {
+                        this.showDatas = mock
+                    } else {
+                        this.showDatas = mock.filter((data) => {
+                            return data.name.search(this.searchKey) != -1
+                        })
+                    }
+                }
+            },
+            mounted() {
+                setTimeout(this.queryAllData, 3000)
+            },
+            watch: {
+                sexFilter(oldValue, newValue) {
+                    this.filterData()
+                },
+                searchKey(oldValue, newValue) {
+                    this.searchData()
+                }
+            }
+        })
+        App.mount("#Application")
+    </script>
+</body>
+
+</html>

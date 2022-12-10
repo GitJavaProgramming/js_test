@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>创建一个超简单的虚拟DOM实例</title>
+</head>
+
+<body>
+    <button id="refresh">refresh element</button>
+    <div id="root"></div>
+    <script src="./virtualDom.js"></script>
+    <script>
+        var elem = Element({
+            tagName: 'ul',
+            props: {'class': 'list'},
+            children: [
+                Element({tagName: 'li', children: ['item1']}),
+                Element({tagName: 'li', children: ['item2']})
+            ]
+        });
+        var newElem =  Element({
+            tagName: 'ul',
+            props: {'class': 'list'},
+            children: [
+                Element({tagName: 'li', children: ['item1']}),
+                Element({tagName: 'li', children: ['hahaha']})
+            ]
+        });
+        var $root = document.querySelector('#root');
+        var $refresh = document.querySelector('#refresh');
+        updateElement($root, elem);
+        $refresh.addEventListener('click', () => {
+            updateElement($root, newElem, elem);
+        });
+    </script>
+</body>
+
+</html>
